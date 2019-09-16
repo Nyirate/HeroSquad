@@ -16,7 +16,7 @@ public class App {
         },new HandlebarsTemplateEngine());
 
         //post: process new hero form
-        post ("/new",(request, response) -> {
+        post ("/news",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name =request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
@@ -27,21 +27,13 @@ public class App {
             return new ModelAndView(model,"pass.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         get("/",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             ArrayList<Post> posts=Post.getAll();
             model.put("Posts",posts);
             return new ModelAndView(model,"heross.hbs");
         },new HandlebarsTemplateEngine());
-
-        //get: show an individual hero
-        get("/hero/:id",(request, response) -> {
-            Map<String,Object>model = new HashMap<>();
-            int idOfHeroToFind = Integer.parseInt(request.params(":id"));
-            Hero foundHero= Hero.findById(idOfHeroToFind);
-            model.put("hero",foundHero);
-            return new ModelAndView(model,"hero-detail.hbs");
-        }, new HandlebarsTemplateEngine());
 
         //get: delete a hero
         get("/hero/:id/delete" ,(request, response) -> {
