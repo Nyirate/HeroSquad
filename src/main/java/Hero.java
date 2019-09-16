@@ -30,6 +30,9 @@ public class Hero {
         return null;
     }
 
+    public static void getAll() {
+    }
+
     public String getName(){
         return name;
     }
@@ -54,6 +57,4 @@ public class Hero {
         return emma.get(id-1);
     }
 
-    public void deleteById(int idOfHeroToDelete) {
-    }
 }

@@ -4,18 +4,19 @@
    <title>{{#block "title"}}Blog{{/block}}</title>
 
    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <ul class="nav nav-tabs">
    <li role="presentation" class="active"><a href="#">Home</a></li>
-   <li role="presentation"><a href="/posts">Add a Squad</a></li>
    <li role="presentation"><a href="/new">Add a Hero</a></li>
+    <li role="presentation"><a href="/squad">Add a Squad</a></li>
 </ul>
-<div class="container">
-   <!--begin main template-->
-   <div class="page-header">
+<!--<div class="container">-->
+<!--   &lt;!&ndash;begin main template&ndash;&gt;-->
+<!--   <div class="page-header">-->
 
-       <h1>Favorite Heroes and Squads</h1>
+       <h1 style="padding-top:5%;font-weight:bold;text-align:center;color:white">Favorite Heroes and Squads</h1>
    </div>
 
    <div class="col-md-12">
@@ -27,9 +28,7 @@
 <!--end main template-->
 {{#block "footer"}}
    <footer class="footer">
-       <div class="container">
-           <p class="text-muted"><a href="/posts/delete">DELETE ALL POSTS</a></p>
-       </div>
+
    </footer>
    </body>
    </html>

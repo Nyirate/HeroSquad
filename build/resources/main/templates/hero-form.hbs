@@ -1,22 +1,28 @@
 {{#partial "content"}}
+    <div class="container">
+        <div class="well" style="width:30%;opacity:0.7;margin-left:40%;margin-top:7%">
+            <h1>Add a new Hero!</h1>
 
-    <h1>Add a new Hero!</h1>
+            <form action="/news" method="post">
+                <label for="name" style="margin-left:7px;">Name</label>
+                <input id="name" name="name" type="text" style="margin-left:8.2%;">
+                <br>
+                <label for="age" style="margin-left:7px;">Age</label>
+                <input id="age" name="age" type="text" style="margin-left:12%;">
+                <br>
+                <label for="power" style="margin-left:7px;">Power</label>
+                <input id="power" name="power" type="text" style="margin-left:7%;">
+                <br>
+                <label for="weakness" style="margin-left:2px;">Weakness</label>
+                <input id="weakness" name="weakness" type="text">
+                <br>
+                <br>
+                <button type="submit" class="btn btn-default">Add Hero</button>
+            </form>
+        </div>
 
-    <form action="/news" method="post">
-        <label for="name">Name</label>
-        <input id="name" name="nom" type="text">
-        <br>
-        <label for="age">Age</label>
-        <input id="age" name="age" type="text">
-         <br>
-        <label for="power">Power</label>
-        <input id="power" name="power" type="text">
-        <br>
-        <label for="weakness">Weakness</label>
-        <input id="weakness" name="weakness" type="text">
+    </div>
 
-        <button type="submit" class="btn btn-default">Add Hero</button>
-    </form>
 {{/partial}}
 
 {{> layout.hbs}}

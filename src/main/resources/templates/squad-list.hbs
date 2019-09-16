@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+    <h1></h1>
+
+    {{#if posts}}
+        {{#each posts}}
+            {{name}}
+            {{size}}
+            {{cause}}
+        {{/each}}
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

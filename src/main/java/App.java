@@ -27,50 +27,42 @@ public class App {
             return new ModelAndView(model,"pass.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+/*
         get("/",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             ArrayList<Post> posts=Post.getAll();
             model.put("Posts",posts);
             return new ModelAndView(model,"heroes.hbs");
-        },new HandlebarsTemplateEngine());
+        },new HandlebarsTemplateEngine());*/
 
         get("/nell",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            ArrayList<Post> posts=Post.getAll();
+            ArrayList<Hero> posts=Hero.all();
             model.put("Posts",posts);
             return new ModelAndView(model,"heroes.hbs");
         },new HandlebarsTemplateEngine());
 
-        //get: delete a hero
-        get("/hero/:id/delete" ,(request, response) -> {
-            Map<String,Object>model = new HashMap<>();
-            int idOfHeroToDelete = Integer.parseInt(request.params("id"));
-            Hero deleteHero = Hero.findById(idOfHeroToDelete);
-            deleteHero.deleteById(idOfHeroToDelete);
-            return new ModelAndView(model,"pass.hbs");
-        },new HandlebarsTemplateEngine());
 
         //get: show squad form
-        get("/squad/list",(request, response) -> {
+        get("/squad",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"squad-form.hbs");
         },new HandlebarsTemplateEngine());
 
 
         //post: process a squad form
-        post ("/squad/list",(request, response) -> {
+        post ("/squads",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name =request.queryParams("name");
             int size = Integer.parseInt(request.queryParams("size"));
             String cause = request.queryParams("cause");
             Squad newSquadIdentity =new Squad(name,size,cause);
-            model.put("squad",newSquadIdentity );
+            model.put("squads",newSquadIdentity );
             return new ModelAndView(model,"pass2.hbs");
         }, new HandlebarsTemplateEngine());
 
 
-        get("/squad/list",(request, response) -> {
+        get("/squad",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Squad> squads = Squad.getAll();
             model.put("squads", squads);
