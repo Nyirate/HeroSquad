@@ -3,9 +3,15 @@
     <h1>Add a new Post!</h1>
 
     <form action="/posts/new" method="post">
-        <label for="content">Post Content</label>
-        <input id="content" name="content" type="text">
-
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text">
+        <br>
+        <label for="size">Size</label>
+        <input id="size" name="size" type="text">
+        <br>
+        <label for="cause">Cause</label>
+        <input id="cause" name="cause" type="text">
+        <br>
         <button type="submit" class="btn btn-default">Go</button>
     </form>
 {{/partial}}
