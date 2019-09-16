@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,13 +10,13 @@ public class App {
         staticFileLocation("/public");
 
         //get: new hero form
-        get("/hero/new",(request, response) -> {
+        get("/new",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"hero-form.hbs");
         },new HandlebarsTemplateEngine());
 
         //post: process new hero form
-        post ("/hero/new",(request, response) -> {
+        post ("/new",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name =request.queryParams("name");
             int age = Integer.parseInt(request.queryParams("age"));
@@ -28,6 +27,12 @@ public class App {
             return new ModelAndView(model,"pass.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            ArrayList<Post> posts=Post.getAll();
+            model.put("Posts",posts);
+            return new ModelAndView(model,"heross.hbs");
+        },new HandlebarsTemplateEngine());
 
         //get: show an individual hero
         get("/hero/:id",(request, response) -> {
