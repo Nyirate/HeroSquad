@@ -32,7 +32,14 @@ public class App {
             Map<String,Object> model = new HashMap<>();
             ArrayList<Post> posts=Post.getAll();
             model.put("Posts",posts);
-            return new ModelAndView(model,"heross.hbs");
+            return new ModelAndView(model,"heroes.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/nell",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            ArrayList<Post> posts=Post.getAll();
+            model.put("Posts",posts);
+            return new ModelAndView(model,"heroes.hbs");
         },new HandlebarsTemplateEngine());
 
         //get: delete a hero
