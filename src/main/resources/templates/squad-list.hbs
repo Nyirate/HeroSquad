@@ -2,12 +2,14 @@
 
     <h1></h1>
 
-    {{#if posts}}
-        {{#each posts}}
+    {{#if squad}}
+        {{#each squad}}
             {{name}}
             {{size}}
             {{cause}}
         {{/each}}
+    {{else}}
+        <p>No squad added</p>
     {{/if}}
 
 {{/partial}}

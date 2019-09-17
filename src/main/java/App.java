@@ -38,7 +38,7 @@ public class App {
         get("/nell",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             ArrayList<Hero> posts=Hero.all();
-            model.put("Posts",posts);
+            model.put("posts",posts);
             return new ModelAndView(model,"heroes.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -64,8 +64,8 @@ public class App {
 
         get("/squad",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Squad> squads = Squad.getAll();
-            model.put("squads", squads);
+            ArrayList<Squad> squad = Squad.getAll();
+            model.put("squad", squad);
             return new ModelAndView(model, "squad-list.hbs");
         },new HandlebarsTemplateEngine());
 
