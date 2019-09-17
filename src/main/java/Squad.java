@@ -5,7 +5,8 @@ public class Squad {
     public String name;
     public String cause;
     public int size;
-    private static List<Squad> emma = new ArrayList<Squad>();
+//    private static List<Squad> emma = new ArrayList<Squad>();
+    private static ArrayList<Squad> emma = new ArrayList<Squad>();
     public int key;
 
     public Squad(String name, String cause, int size) {
@@ -31,6 +32,6 @@ public class Squad {
     }
 
     public static ArrayList<Squad> getAll() {
-        return (ArrayList<Squad>) emma;
+        return  emma;
     }
 }

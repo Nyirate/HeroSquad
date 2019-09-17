@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -51,7 +52,7 @@ public class App {
 
 
         //post: process a squad form
-        post ("/squads",(request, response) -> {
+        post ("/yes",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name =request.queryParams("name");
             int size = Integer.parseInt(request.queryParams("size"));
@@ -62,11 +63,11 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        get("/squad",(request, response) -> {
+        get("/yes",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Squad> squad = Squad.getAll();
-            model.put("squad", squad);
-            return new ModelAndView(model, "squad-list.hbs");
+            ArrayList<Squad> squads=Squad.getAll();
+            model.put("squads", squads);
+            return new ModelAndView(model,"squad-list.hbs");
         },new HandlebarsTemplateEngine());
 
     }
