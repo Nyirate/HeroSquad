@@ -24,6 +24,7 @@ public class App {
             String power= request.queryParams("power");
             String weakness = request.queryParams("weakness");
             Hero newIdentity =new Hero(name,age,power,weakness);
+            model.put("name",newIdentity.getName());
             model.put("hero",newIdentity);
             return new ModelAndView(model,"pass.hbs");
         }, new HandlebarsTemplateEngine());
@@ -55,10 +56,13 @@ public class App {
         post ("/yes",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name =request.queryParams("name");
-            int size = Integer.parseInt(request.queryParams("size"));
             String cause = request.queryParams("cause");
-            Squad newSquadIdentity =new Squad(name,size,cause);
-            model.put("squads",newSquadIdentity );
+            int size = Integer.parseInt(request.queryParams("size"));
+            Squad newSquadIdentity =new Squad(name,cause,size);
+            model.put("name",newSquadIdentity.getName());
+            model.put("cause",newSquadIdentity.getCause());
+            model.put("size",newSquadIdentity.getSize());
+            model.put("squads1",newSquadIdentity );
             return new ModelAndView(model,"pass2.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -66,6 +70,7 @@ public class App {
         get("/yes",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Squad> squads=Squad.getAll();
+            System.out.println(squads);
             model.put("squads", squads);
             return new ModelAndView(model,"squad-list.hbs");
         },new HandlebarsTemplateEngine());

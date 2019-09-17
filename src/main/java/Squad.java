@@ -16,8 +16,6 @@ public class Squad {
         emma.add(this);
     }
 
-    public Squad(String name, int size, String cause) {
-    }
 
     public String getName() {
         return name;
